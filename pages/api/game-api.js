@@ -1,5 +1,15 @@
-// pages/api/game-api.js
 export default function handler(req, res) {
+  const API_TOKEN = process.env.API_TOKEN;
+
+  // Ambil token dari header request
+  const token = req.headers['authorization'];
+
+  // Validasi token
+  if (token !== `Bearer ${API_TOKEN}`) {
+    return res.status(403).json({ error: 'Forbidden: Invalid API token' });
+  }
+
+  // Jika token valid, kirim respons JSON
   res.status(200).json({
     clientVersionCode: 1,
     clientSampVersionCode: 1,
