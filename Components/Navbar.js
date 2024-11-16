@@ -38,16 +38,6 @@ function Navbar() {
           <img src="/logo.png" alt="Logo" className="h-8 mr-2" />
           <div className="text-xl font-bold text-gray-800">My Vercel App</div>
         </div>
-        <button
-          className="md:hidden focus:outline-none"
-          onClick={toggleModal}
-        >
-          <div className="space-y-1">
-            <div className="w-8 h-1 bg-gray-800"></div>
-            <div className="w-8 h-1 bg-gray-800"></div>
-            <div className="w-8 h-1 bg-gray-800"></div>
-          </div>
-        </button>
         <div className="hidden md:flex md:items-center">
           <a href="#login" className="ml-6 flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
             <img src="https://img.icons8.com/material-outlined/24/ffffff/login-rounded-right.png" alt="Login" className="mr-2" />

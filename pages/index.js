@@ -14,8 +14,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100">
+      <main className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 relative">
         <div className="container mx-auto px-4 py-10">
+          {/* Tempatkan Switch di kanan atas */}
+          <div className="absolute top-4 right-4">
+            <Switch />
+          </div>
+
           {/* Hero Section */}
           <section className="text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800">
@@ -31,10 +36,6 @@ export default function Home() {
               >
                 Get Started
               </a>
-            </div>
-            {/* Tambahkan komponen Switch di sini */}
-            <div className="mt-4">
-              <Switch />
             </div>
           </section>
 
