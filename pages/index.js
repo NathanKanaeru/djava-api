@@ -2,35 +2,7 @@
 //import '../styles/globals.css'; // Ensure this line is present
 import "tailwindcss/tailwind.css"
 import Head from 'next/head';
-
-import { useState } from 'react';
-
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <nav className="bg-white shadow">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="text-xl font-bold text-gray-800">My Vercel App</div>
-        <button
-          className="md:hidden focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <div className="space-y-1">
-            <div className="w-8 h-1 bg-gray-800"></div>
-            <div className="w-8 h-1 bg-gray-800"></div>
-            <div className="w-8 h-1 bg-gray-800"></div>
-          </div>
-        </button>
-        <div className={`md:flex md:items-center ${isOpen ? 'block' : 'hidden'}`}>
-          <a href="#login" className="block mt-4 md:mt-0 md:ml-6">Login</a>
-          <a href="#register" className="block mt-4 md:mt-0 md:ml-6">Register</a>
-          <a href="#features" className="block mt-4 md:mt-0 md:ml-6">Features</a>
-        </div>
-      </div>
-    </nav>
-  );
-}
+import Navbar from "../Components/Navbar";
 
 export default function Home() {
   return (
