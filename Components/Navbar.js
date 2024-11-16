@@ -1,6 +1,6 @@
 // components/Navbar.js
 import { useEffect, useState } from 'react';
-
+import Switch from './Switch';
 function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -38,6 +38,16 @@ function Navbar() {
           <img src="/logo.png" alt="Logo" className="h-8 mr-2" />
           <div className="text-xl font-bold text-gray-800">My Vercel App</div>
         </div>
+        <button
+          className="md:hidden focus:outline-none"
+          onClick={toggleModal}
+        >
+          <div className="space-y-1">
+            <div className="w-8 h-1 bg-gray-800"></div>
+            <div className="w-8 h-1 bg-gray-800"></div>
+            <div className="w-8 h-1 bg-gray-800"></div>
+          </div>
+        </button>
         <div className="hidden md:flex md:items-center">
           <a href="#login" className="ml-6 flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
             <img src="https://img.icons8.com/material-outlined/24/ffffff/login-rounded-right.png" alt="Login" className="mr-2" />
@@ -51,13 +61,7 @@ function Navbar() {
             <img src="https://img.icons8.com/material-outlined/24/ffffff/features.png" alt="Features" className="mr-2" />
             Features
           </a>
-          <button
-            onClick={toggleDarkMode}
-            className="ml-6 flex items-center px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition"
-          >
-            <img src="https://img.icons8.com/material-outlined/24/000000/sun.png" alt="Switch Mode" className="mr-2" />
-            {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-          </button>
+          <Switch />
         </div>
       </div>
 
@@ -82,13 +86,7 @@ function Navbar() {
                 <img src="https://img.icons8.com/material-outlined/24/000000/features.png" alt="Features" className="mr-2" />
                 Features
               </a>
-              <button
-                onClick={toggleDarkMode}
-                className="py-2 flex items-center text-gray-800 hover:underline"
-              >
-                <img src="https://img.icons8.com/material-outlined/24/000000/sun.png" alt="Switch Mode" className="mr-2" />
-                {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-              </button>
+              <Switch />
             </div>
           </div>
         </div>
