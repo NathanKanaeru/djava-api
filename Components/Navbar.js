@@ -2,17 +2,26 @@
 import { useState } from 'react';
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.body.classList.toggle('bg-gray-900', !isDarkMode);
+    document.body.classList.toggle('text-white', !isDarkMode);
+  };
+
   return (
-    <nav className="bg-white shadow">
+    <nav className={`bg-white shadow ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="text-xl font-bold text-gray-800">My Vercel App</div>
+        <div className="flex items-center">
+          <img src="/logo.png" alt="Logo" className="h-8 mr-2" />
+          <div className="text-xl font-bold text-gray-800">My Vercel App</div>
+        </div>
         <button
           className="md:hidden focus:outline-none"
           onClick={toggleModal}
@@ -23,6 +32,27 @@ function Navbar() {
             <div className="w-8 h-1 bg-gray-800"></div>
           </div>
         </button>
+        <div className="hidden md:flex md:items-center">
+          <a href="#login" className="ml-6 flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/login-rounded-right.png" alt="Login" className="mr-2" />
+            Login
+          </a>
+          <a href="#register" className="ml-6 flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/user-plus.png" alt="Register" className="mr-2" />
+            Register
+          </a>
+          <a href="#features" className="ml-6 flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/features.png" alt="Features" className="mr-2" />
+            Features
+          </a>
+          <button
+            onClick={toggleDarkMode}
+            className="ml-6 flex items-center px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition"
+          >
+            <img src="https://img.icons8.com/material-outlined/24/000000/sun.png" alt="Switch Mode" className="mr-2" />
+            {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+          </button>
+        </div>
       </div>
 
       {/* Modal */}
@@ -34,9 +64,25 @@ function Navbar() {
               &times;
             </button>
             <div className="flex flex-col">
-              <a href="#login" className="py-2">Login</a>
-              <a href="#register" className="py-2">Register</a>
-              <a href="#features" className="py-2">Features</a>
+              <a href="#login" className="py-2 flex items-center text-blue-500 hover:underline">
+                <img src="https://img.icons8.com/material-outlined/24/000000/login-rounded-right.png" alt="Login" className="mr-2" />
+                Login
+              </a>
+              <a href="#register" className="py-2 flex items-center text-blue-500 hover:underline">
+                <img src="https://img.icons8.com/material-outlined/24/000000/user-plus.png" alt="Register" className="mr-2" />
+                Register
+              </a>
+              <a href="#features" className="py-2 flex items-center text-blue-500 hover:underline">
+                <img src="https://img.icons8.com/material-outlined/24/000000/features.png" alt="Features" className="mr-2" />
+                Features
+              </a>
+              <button
+                onClick={toggleDarkMode}
+                className="py-2 flex items-center text-gray-800 hover:underline"
+              >
+                <img src="https://img.icons8.com/material-outlined/24/000000/sun.png" alt="Switch Mode" className="mr-2" />
+                {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              </button>
             </div>
           </div>
         </div>
