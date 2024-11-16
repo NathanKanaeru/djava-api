@@ -1,6 +1,6 @@
 // pages/_app.js
 //import '../styles/globals.css'; // Ensure this line is present
-
+import "tailwindcss/tailwind.css"
 import Head from 'next/head';
 export default function Home() {
   return (
