@@ -1,8 +1,8 @@
-// pages/_app.js
-//import '../styles/globals.css'; // Ensure this line is present
-import "tailwindcss/tailwind.css"
+// pages/index.js
+import "tailwindcss/tailwind.css";
 import Head from 'next/head';
 import Navbar from "../Components/Navbar";
+import Switch from "../Components/Switch"; // Import komponen Switch
 
 export default function Home() {
   return (
@@ -31,6 +31,10 @@ export default function Home() {
               >
                 Get Started
               </a>
+            </div>
+            {/* Tambahkan komponen Switch di sini */}
+            <div className="mt-4">
+              <Switch />
             </div>
           </section>
 
